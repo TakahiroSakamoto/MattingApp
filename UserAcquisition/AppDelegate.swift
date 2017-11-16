@@ -9,6 +9,8 @@
 import UIKit
 import NCMB
 import UserNotifications
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        NCMB.setApplicationKey("873f0235ee99fffc1f3e35bd7a9b664efc9a8433cf87ec8de8c63bc9fe1342e8",clientKey: "c9ad94e5a25b4ef0deafaffc969db813b06abdc1be3a53975c1a0b2a260dff64")
+         NCMB.setApplicationKey("873f0235ee99fffc1f3e35bd7a9b664efc9a8433cf87ec8de8c63bc9fe1342e8",clientKey: "c9ad94e5a25b4ef0deafaffc969db813b06abdc1be3a53975c1a0b2a260dff64")
         
         // デバイストークンの要求
         if #available(iOS 10.0, *){
@@ -31,8 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return
                 }
                 if granted {
-                    // デバイストークンの要求
-                    UIApplication.shared.registerForRemoteNotifications()
+                    DispatchQueue.main.async(execute: {
+                        // デバイストークンの要求
+                        UIApplication.shared.registerForRemoteNotifications()
+                    })
+                    
+                    
                 }
             }
         } else {
@@ -42,10 +47,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //通知のタイプを設定
             application.registerUserNotificationSettings(setting)
             //DevoceTokenを要求
-            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.async(execute: {
+                // デバイストークンの要求
+                UIApplication.shared.registerForRemoteNotifications()
+            })
         }
         
-        return true
+        
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     // デバイストークンが取得されたら呼び出されるメソッド
@@ -109,6 +119,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
