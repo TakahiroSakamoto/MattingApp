@@ -27,35 +27,15 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 } else {
                     print("情報を保存")
                     //必要な情報が取れていることを確認(今回はemail必須)
-                    if result.grantedPermissions.contains("email")
+                    if result.grantedPermissions.contains("public_profile")
                     {
                         print("成功")
-//                        var facebookInfo : [AnyHashable: Any] = [
-//                            "id" : result.token.userID,
-//                            "access_token" : result.token.tokenString,
-//                            "expiration_date" : result.token.expirationDate
-//                        ]
-//
-//                        let userToFacebook = NCMBUser()
-//                        userToFacebook.signUp(withFacebookToken: facebookInfo) { (error) in
-//                            if ((error) != nil){
-//                                //会員登録に失敗した場合の処理
-//                                print("失敗")
-//                            } else {
-//                                //会員登録に成功した場合の処理
-//                                print("登録完了")
-//                            }
-//                        }
-                        // 次の画面に遷移
-                        self.performSegue(withIdentifier: "ShowUsers", sender: self)
-                    } else {
-                        
                         var facebookInfo : [AnyHashable: Any] = [
                             "id" : result.token.userID,
                             "access_token" : result.token.tokenString,
                             "expiration_date" : result.token.expirationDate
                         ]
-                        
+
                         let userToFacebook = NCMBUser()
                         userToFacebook.signUp(withFacebookToken: facebookInfo) { (error) in
                             if ((error) != nil){
@@ -64,11 +44,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                             } else {
                                 //会員登録に成功した場合の処理
                                 print("登録完了")
+                                userToFacebook.userName = "たかひろ"
+                                print(userToFacebook.userName)
                             }
                         }
+                        // 次の画面に遷移
+                        self.performSegue(withIdentifier: "ShowUsers", sender: self)
+                    } else {
+                        
                     }
                 }
-    
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -79,7 +64,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        print(NCMBInstallation.current().objectId)
         
+        var asdf = NCMBPush()
+//        asdf.setQuery(<#T##query: NCMBQuery!##NCMBQuery!#>)
+//        asdf.setData(<#T##dic: [AnyHashable : Any]!##[AnyHashable : Any]!#>)
         
     }
     
@@ -94,6 +83,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             loginButton.readPermissions = ["public_profile"]
             view.addSubview(loginButton)
         }
+        
+        print(NCMBInstallation.current().deviceToken)
     }
     @IBAction func clikedLoginButton(_ sender: UIButton) {
         

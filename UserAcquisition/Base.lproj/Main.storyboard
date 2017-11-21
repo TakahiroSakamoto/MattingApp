@@ -78,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahn-Kw-KVm">
-                                <rect key="frame" x="85" y="256" width="205" height="49"/>
+                                <rect key="frame" x="85" y="435" width="205" height="49"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <state key="normal" title="ログアウト">
@@ -88,13 +88,29 @@
                                     <action selector="logoutButton:" destination="SKm-0H-laJ" eventType="touchUpInside" id="ikT-MO-gVf"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O4Y-nS-TO0">
+                                <rect key="frame" x="121" y="47" width="133" height="146"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeF-B2-Qfx">
+                                <rect key="frame" x="16" y="219" width="343" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gyk-DZ-jdD" firstAttribute="trailing" secondItem="ahn-Kw-KVm" secondAttribute="trailing" constant="85" id="HYE-jy-zFj"/>
-                            <constraint firstItem="ahn-Kw-KVm" firstAttribute="top" secondItem="gyk-DZ-jdD" secondAttribute="top" constant="236" id="e58-zX-R2N"/>
-                            <constraint firstItem="gyk-DZ-jdD" firstAttribute="bottom" secondItem="ahn-Kw-KVm" secondAttribute="bottom" constant="313" id="ePK-sR-Egx"/>
+                            <constraint firstItem="ahn-Kw-KVm" firstAttribute="top" secondItem="eeF-B2-Qfx" secondAttribute="bottom" constant="186" id="Ife-h0-vH3"/>
+                            <constraint firstItem="eeF-B2-Qfx" firstAttribute="top" secondItem="O4Y-nS-TO0" secondAttribute="bottom" constant="26" id="K8v-1R-UpN"/>
+                            <constraint firstItem="ahn-Kw-KVm" firstAttribute="top" secondItem="gyk-DZ-jdD" secondAttribute="top" constant="415" id="e58-zX-R2N"/>
+                            <constraint firstItem="gyk-DZ-jdD" firstAttribute="bottom" secondItem="ahn-Kw-KVm" secondAttribute="bottom" constant="134" id="ePK-sR-Egx"/>
                             <constraint firstItem="ahn-Kw-KVm" firstAttribute="leading" secondItem="gyk-DZ-jdD" secondAttribute="leading" constant="85" id="jAa-vd-3qr"/>
+                            <constraint firstItem="O4Y-nS-TO0" firstAttribute="top" secondItem="gyk-DZ-jdD" secondAttribute="top" constant="27" id="mTO-kR-URa"/>
+                            <constraint firstItem="gyk-DZ-jdD" firstAttribute="trailing" secondItem="O4Y-nS-TO0" secondAttribute="trailing" constant="121" id="oOT-gr-Sji"/>
+                            <constraint firstItem="eeF-B2-Qfx" firstAttribute="leading" secondItem="gyk-DZ-jdD" secondAttribute="leading" constant="16" id="pnB-SN-vCu"/>
+                            <constraint firstItem="O4Y-nS-TO0" firstAttribute="leading" secondItem="gyk-DZ-jdD" secondAttribute="leading" constant="121" id="sZS-mG-6w8"/>
+                            <constraint firstItem="gyk-DZ-jdD" firstAttribute="trailing" secondItem="eeF-B2-Qfx" secondAttribute="trailing" constant="16" id="znk-3f-EQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gyk-DZ-jdD"/>
                     </view>
