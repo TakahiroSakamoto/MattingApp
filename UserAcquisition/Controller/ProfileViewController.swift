@@ -10,7 +10,10 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 
-class LogoutViewController: UIViewController {
+class ProfileViewController: UIViewController {
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class LogoutViewController: UIViewController {
         loginManager.logOut()
         self.performSegue(withIdentifier: "ShowUsers", sender: self)
     }
+    
+    
     
 
     /*

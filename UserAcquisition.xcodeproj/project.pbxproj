@@ -21,7 +21,7 @@
 		3D8D3F701FB952470082652B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D3F6E1FB952470082652B /* LaunchScreen.storyboard */; };
 		3DA730661FBC38E4004DEFCE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA730671FBC38E4004DEFCE /* FBSDKCoreKit.framework */; };
 		3DA730681FBC38E9004DEFCE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DA730691FBC38E9004DEFCE /* FBSDKLoginKit.framework */; };
-		3DAC363C1FBC4B0C005852BB /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC363B1FBC4B0C005852BB /* LogoutViewController.swift */; };
+		3DAC363C1FBC4B0C005852BB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DAC363B1FBC4B0C005852BB /* ProfileViewController.swift */; };
 		3DD194F41FB9D70600AE2A1F /* NCMB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD194F51FB9D70600AE2A1F /* NCMB.framework */; };
 		68C261A94F91ED883991DE8B /* Pods_UserAcquisition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 247350D02B6FDA316DAF14BC /* Pods_UserAcquisition.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +44,7 @@
 		3D8D3F711FB952470082652B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA730671FBC38E4004DEFCE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DA730691FBC38E9004DEFCE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DAC363B1FBC4B0C005852BB /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
+		3DAC363B1FBC4B0C005852BB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3DAC8B8E1FBC0B4100EA0556 /* UserAcquisition.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UserAcquisition.entitlements; sourceTree = "<group>"; };
 		3DD194F51FB9D70600AE2A1F /* NCMB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NCMB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D9CBFF2AD4701C2C4CE154F /* Pods-UserAcquisition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserAcquisition.release.xcconfig"; path = "Pods/Target Support Files/Pods-UserAcquisition/Pods-UserAcquisition.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 				3D2E50CB1FB9895D0015458C /* TabBarController.swift */,
 				3D2E50CD1FB989AA0015458C /* LoginViewController.swift */,
 				3D8D3F671FB952470082652B /* ViewController.swift */,
-				3DAC363B1FBC4B0C005852BB /* LogoutViewController.swift */,
+				3DAC363B1FBC4B0C005852BB /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 				3D2E50C81FB988850015458C /* UserManager.swift in Sources */,
 				3D2E50CC1FB9895D0015458C /* TabBarController.swift in Sources */,
 				3D2E50CA1FB9890A0015458C /* UsersTableViewController.swift in Sources */,
-				3DAC363C1FBC4B0C005852BB /* LogoutViewController.swift in Sources */,
+				3DAC363C1FBC4B0C005852BB /* ProfileViewController.swift in Sources */,
 				3D2E50C61FB988380015458C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
