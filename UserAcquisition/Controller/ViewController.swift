@@ -63,8 +63,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // InstallationのObjectID取得
         print(NCMBInstallation.current().objectId)
+       
         
         var asdf = NCMBPush()
 //        asdf.setQuery(<#T##query: NCMBQuery!##NCMBQuery!#>)
@@ -87,7 +88,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         print(NCMBInstallation.current().deviceToken)
     }
     @IBAction func clikedLoginButton(_ sender: UIButton) {
-        
+        var btn = sender
+        var cell = btn.superview?.superview as! UITableViewCell
+        var tableView = UITableView()
+        var row = tableView.indexPath(for: cell)?.row
     }
 //        let userToFacebook = NCMBUser()
 //        userToFacebook.signUp(withFacebookToken: [AnyHashable : Any]!) { (error) in

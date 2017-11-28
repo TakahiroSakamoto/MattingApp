@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          NCMB.setApplicationKey("873f0235ee99fffc1f3e35bd7a9b664efc9a8433cf87ec8de8c63bc9fe1342e8",clientKey: "c9ad94e5a25b4ef0deafaffc969db813b06abdc1be3a53975c1a0b2a260dff64")
         
         // デバイストークンの要求
-        if #available(iOS 10.0, *){
+        if #available(iOS 11.0, *){
             /** iOS10以上 **/
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options: [.alert, .badge, .sound]) {granted, error in
@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // デバイストークンの要求
                         UIApplication.shared.registerForRemoteNotifications()
                     })
-                    
                     
                 }
             }
@@ -122,9 +121,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKAppEvents.activateApp()
     }
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?,annotation: AnyObject) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+//    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String!,annotation: Any) -> Bool {
+//        print(sourceApplication)
+//
+//        return FBSDKApplicationDelegate.sharedInstance().application(application, open: url as URL! , sourceApplication: sourceApplication, annotation: annotation)
+//    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let sourceApplication: String? = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+        print(sourceApplication!)
+        print("OKOKOOKOKKOK")
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: nil)
+
     }
+
+    
+//    func applicationsourceapplic
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
