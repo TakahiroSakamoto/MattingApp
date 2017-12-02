@@ -67,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3545" y="971"/>
+            <point key="canvasLocation" x="-3444" y="519"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="2Vb-3i-rWc">
@@ -239,7 +239,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HRl-pp-3S4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1481" y="-295"/>
+            <point key="canvasLocation" x="-1482.4000000000001" y="-295.50224887556226"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Gym-FH-RC2">
@@ -260,4 +260,7 @@
             <point key="canvasLocation" x="-2434" y="-294"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XxU-bG-TLM"/>
+    </inferredMetricsTieBreakers>
 </document>

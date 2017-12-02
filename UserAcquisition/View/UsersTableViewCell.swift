@@ -26,4 +26,9 @@ class UsersTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func clickedLikButton(_ sender: UIButton) {
+        //print("クリックしたお")
+    }
+    
 }

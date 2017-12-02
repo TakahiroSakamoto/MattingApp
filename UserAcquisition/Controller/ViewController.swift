@@ -44,6 +44,18 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                             } else {
                                 //会員登録に成功した場合の処理
                                 print("登録完了")
+                                let insObjectId = NCMBInstallation.current().objectId
+                                print(insObjectId)
+                                let userObject = NCMBObject(className: "user")
+                                userObject?.setObject(insObjectId, forKey: "insObjectId")
+                                userObject?.saveInBackground({ (error) in
+                                    if error == nil {
+                                        print("プッシュ通知準備できたよーーー")
+                                    } else {
+                                        print("やり直してーーーーーーーーーー")
+                                        print(error)
+                                    }
+                                })
                                 userToFacebook.userName = "たかひろ"
                                 print(userToFacebook.userName)
                             }
@@ -63,13 +75,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // InstallationのObjectID取得
-        print(NCMBInstallation.current().objectId)
-       
         
-        var asdf = NCMBPush()
-//        asdf.setQuery(<#T##query: NCMBQuery!##NCMBQuery!#>)
-//        asdf.setData(<#T##dic: [AnyHashable : Any]!##[AnyHashable : Any]!#>)
         
     }
     
@@ -88,10 +94,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         print(NCMBInstallation.current().deviceToken)
     }
     @IBAction func clikedLoginButton(_ sender: UIButton) {
-        var btn = sender
-        var cell = btn.superview?.superview as! UITableViewCell
-        var tableView = UITableView()
-        var row = tableView.indexPath(for: cell)?.row
+       
     }
 //        let userToFacebook = NCMBUser()
 //        userToFacebook.signUp(withFacebookToken: [AnyHashable : Any]!) { (error) in

@@ -17,18 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
          NCMB.setApplicationKey("873f0235ee99fffc1f3e35bd7a9b664efc9a8433cf87ec8de8c63bc9fe1342e8",clientKey: "c9ad94e5a25b4ef0deafaffc969db813b06abdc1be3a53975c1a0b2a260dff64")
         
         // デバイストークンの要求
-        if #available(iOS 11.0, *){
+        if #available(iOS 10.0, *){
             /** iOS10以上 **/
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options: [.alert, .badge, .sound]) {granted, error in
                 if error != nil {
                     // エラー時の処理
+                   
                     return
                 }
                 if granted {
@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // デバイストークンの要求
                         UIApplication.shared.registerForRemoteNotifications()
                     })
-                    
                 }
             }
         } else {
@@ -52,17 +51,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             })
         }
         
+        return true
         
-        
-        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     // デバイストークンが取得されたら呼び出されるメソッド
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
         // 端末情報を扱うNCMBInstallationのインスタンスを作成
         let installation = NCMBInstallation.current()
+        print(installation)
         // デバイストークンの設定
-        installation?.setDeviceTokenFrom(deviceToken)
+        installation?.setDeviceTokenFrom(deviceToken as Data!)
         // 端末情報をデータストアに登録
         installation?.saveInBackground({ (error) in
             if error != nil {
@@ -70,11 +70,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let err = error as! NSError
                 if (err.code == 409001){
                     // 失敗した原因がデバイストークンの重複だった場合
+                    
                     // 端末情報を上書き保存する
                     self.updateExistInstallation(currentInstallation: installation!)
                 }else{
                     // デバイストークンの重複以外のエラーが返ってきた場合
-                }
+                                    }
             } else {
                 // 端末情報の登録に成功した時の処理
             }
@@ -130,8 +131,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
         let sourceApplication: String? = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
-        print(sourceApplication!)
-        print("OKOKOOKOKKOK")
+       
         return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceApplication, annotation: nil)
 
     }

@@ -14,6 +14,8 @@
 		3D2E50CE1FB989AA0015458C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E50CD1FB989AA0015458C /* LoginViewController.swift */; };
 		3D2E50D51FB98BB20015458C /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E50D31FB98BB20015458C /* UsersTableViewCell.swift */; };
 		3D2E50D61FB98BB20015458C /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E50D41FB98BB20015458C /* UsersTableViewCell.xib */; };
+		3D6EA00B1FD1A07000C1C775 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6EA00A1FD1A07000C1C775 /* UserNotifications.framework */; };
+		3D6EA00D1FD1A07B00C1C775 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D6EA00C1FD1A07B00C1C775 /* UserNotificationsUI.framework */; };
 		3D8D3F661FB952470082652B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D3F651FB952470082652B /* AppDelegate.swift */; };
 		3D8D3F681FB952470082652B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8D3F671FB952470082652B /* ViewController.swift */; };
 		3D8D3F6B1FB952470082652B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8D3F691FB952470082652B /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		3D2E50CD1FB989AA0015458C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3D2E50D31FB98BB20015458C /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		3D2E50D41FB98BB20015458C /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
+		3D6EA00A1FD1A07000C1C775 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		3D6EA00C1FD1A07B00C1C775 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
 		3D8D3F621FB952470082652B /* UserAcquisition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserAcquisition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8D3F651FB952470082652B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8D3F671FB952470082652B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6EA00D1FD1A07B00C1C775 /* UserNotificationsUI.framework in Frameworks */,
+				3D6EA00B1FD1A07000C1C775 /* UserNotifications.framework in Frameworks */,
 				3DA730681FBC38E9004DEFCE /* FBSDKLoginKit.framework in Frameworks */,
 				3DA730661FBC38E4004DEFCE /* FBSDKCoreKit.framework in Frameworks */,
 				3DD194F41FB9D70600AE2A1F /* NCMB.framework in Frameworks */,
@@ -142,6 +148,8 @@
 		B81E66716BFDEF8A43DF3567 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D6EA00C1FD1A07B00C1C775 /* UserNotificationsUI.framework */,
+				3D6EA00A1FD1A07000C1C775 /* UserNotifications.framework */,
 				3DA730691FBC38E9004DEFCE /* FBSDKLoginKit.framework */,
 				3DA730671FBC38E4004DEFCE /* FBSDKCoreKit.framework */,
 				3DD194F51FB9D70600AE2A1F /* NCMB.framework */,

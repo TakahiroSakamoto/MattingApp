@@ -27,6 +27,7 @@ class UsersTableViewController: UITableViewController {
         self.tableView.register(nib, forCellReuseIdentifier: "UserTableViewCell")
         
         
+        
         userManager.fetchUsers { () in
             self.tableView.reloadData()
         }
@@ -55,11 +56,83 @@ class UsersTableViewController: UITableViewController {
         
         let user = userManager.users[indexPath.row]
         cell.userNameLabel.text! = user.name
-        print(cell.userNameLabel.text!)
+       
+        cell.LikeButton.addTarget(self, action: #selector(self.onClicked(_:
+            )), for: UIControlEvents.touchUpInside)
         
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//
+//        let user = userManager.users[indexPath.row]
+//        self.userName.text! = user.name
+//        cell.textLabel?.text = self.userName.text!
+
         return cell
     }
     
+    // セルをクリックしたらそのユーザーのプロフィールに遷移
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = userManager.users[indexPath.row]
+        
+    }
+    
+    
+    @objc func onClicked(_ sender: UIButton) {
+        let cell = sender.superview?.superview as! UITableViewCell
+        guard let row = self.tableView.indexPath(for: cell)?.row else {
+            
+            return
+        }
+        
+        // セルに対応したユーザーを取得し、プッシュ通知の処理を記述する
+        print("\(row)")
+        
+        // InstallationのObjectID取得
+        print(NCMBInstallation.current().objectId)
+        
+        /* installation を指定して絞り込み */
+        let query = NCMBInstallation.query()
+        query?.whereKey("objectId", equalTo: userManager.users[row])
+        
+        var push = NCMBPush()
+        push.setSearchCondition(query)
+        
+        let data_iOS = ["contentAvailable" : false, "badgeIncrementFlag" : true, "sound" : "default"] as [String : Any]
+        push.setData(data_iOS)
+        push.setPushToIOS(true)
+        push.setTitle("-----Title-----")
+        push.setMessage("-----Message-----")
+        push.setImmediateDeliveryFlag(true) // 即時配信
+        push.sendInBackground { (error) in
+            if error != nil {
+                // プッシュ通知登録に失敗した場合の処理
+                print("NG:\(error)")
+            } else {
+                // プッシュ通知登録に成功した場合の処理
+                print("OK")
+            }
+        }
+        
+        
+//        // pushを打つ相手を指定するクエリ
+//        let pushQuery = PFInstallation.query()
+//        pushQuery.whereKey("user", equalTo: user)
+//
+//        // payload の中身を設定
+//        let data = ["alert":"メッセージが届きました",
+//                    "badge":1,
+//                    "sound":"default",
+//                    "type":"reaction"]
+//
+//        // push通知を生成
+//        let push = PFPush()
+//        push.setQuery(pushQuery)
+//        push.setData(data)
+//
+//        // push通知を送信
+//        push.sendPushInBackgroundWithBlock { (isSuccess, error) -> Void in
+//            // 送信完了後の処理
+//        }
+    }
     
     
     
